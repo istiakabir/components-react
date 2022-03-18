@@ -1,17 +1,38 @@
  import logo from './logo.svg';
 import './App.css';
 
-const singer = {name:'Dr.Khan Mia', Profession : 'singer'}
+const singer = {name:'Dr.Khan Mia', profession : 'singer'}
+
+
+
+const singers = [
+  {name:'Dr.Khan Mia', profession : 'singer'},
+  {name:'ala Mia', profession : 'dancer'},
+  {name:'Dohola Mia', profession : 'jouker'},
+  {name:'LLW Mia', profession : 'singer'}
+];
 
 function App() {
+
+  const nayoks =['Salman Khan', 'Kokil Kha','Kobur', 'Razzak', 'Anwar']
+
+  
   return (
     <div className="App">
-      <Person name='Salman Khan' nayika ='Zerina'></Person>
-      <Person name='Kokil Kha' nayika ='Lalia'></Person>
-      <Person name='Kobur' nayika ='Kopila'></Person>
-      <Friend movie ='Singham'></Friend>
+      {
+    nayoks.map(nayok => <Person name ={nayok}></Person>)
+  }
+
+  {
+    singers.map(singer => <Friend name={singer.name} profession ={singer.profession}></Friend>)
+  }
+
+      {/* <Person name={nayoks[0]} nayika ='Zerina'></Person>
+      <Person name={nayoks[1]}  nayika ='Lalia'></Person>
+      <Person name={nayoks[2]}  nayika ='Kopila'></Person> */}
+      {/* <Friend></Friend>
       <Friend></Friend>
-      <Friend></Friend>
+      <Friend></Friend> */}
     </div>
   );
 }
@@ -30,9 +51,8 @@ const Person = (props) => {
 function Friend(props){
   return(
     <div className='container'>
-      <h1>Habib Khan</h1>
-      <p>Profession: Maramari</p>
-      <p>Movie:{props.movie}</p>
+      <h1>{props.name}</h1>
+      <p>{props.profession}</p>
     </div>
   )
 }
